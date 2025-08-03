@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Weapons</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
+  <script src="js/table-loader-weapons.js" defer></script>
+  <style>
+    body {
+      font-family: Arial;
+      background: #121212;
+      color: #f0f0f0;
+      padding: 2rem;
+    }
+    input,
+    select {
+      padding: 0.5rem;
+      margin-right: 1rem;
+      font-size: 1em;
+    }
+    table {
+      border-collapse: collapse;
+      width: 100%;
+      margin-top: 1rem;
+    }
+    th,
+    td {
+      border: 1px solid #444;
+      padding: 0.5rem;
+      text-align: left;
+    }
+    th {
+      background: #333;
+    }
+    a {
+      color: #00d1b2;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+  <h1>Weapons</h1>
+  <div>
+    <input type="text" id="search" placeholder="Search weapons...">
+    <select id="filter">
+      <option value="">Filter by Type</option>
+    </select>
+  </div>
+  <table id="weaponsTable">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Damage</th>
+        <th>Weight</th>
+      </tr>
+    </thead>
+    <tbody></tbody>
+  </table>
+  <p><a href="index.html">← Back to Home</a></p>
+
+  <script>
+    // Type is the 2nd column (index 1)
+  document.addEventListener('DOMContentLoaded', function () {
+    console.log("✅ DOM ready, calling loadTable");
+    loadTable('data/weapons.csv', 'weaponsTable', 1);
+  });
+  </script>
+</body>
+</html>
